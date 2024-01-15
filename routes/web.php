@@ -16,13 +16,16 @@ Route::view('/', 'welcome')->name('home');
 Route::redirect('/home', '/');
 
 Route::get('/test', TestController::class)->name('test');
+Route::redirect('/test2', '/test')->name('test')->middleware('token');
 
-//страница регистрации пользователя
-Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+Route::middleware('guest')->group(function () {
+    //страница регистрации пользователя
+    Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 //страница входа пользователя
-Route::get('/login', [LoginController::class, 'index'])->name('login.index');
-Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+    Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+    Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+});
 
 Route::get('/blog', [BlogController::class, 'index '])->name('blog.index');
 Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
