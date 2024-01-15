@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 //Следующая строка аналогична коду выше
-Route::view('/', 'welcome')->name('home');
+Route::view('/', 'home.index')->name('home');
 
 Route::redirect('/home', '/');
 
@@ -27,7 +27,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 });
 
-Route::get('/blog', [BlogController::class, 'index '])->name('blog.index');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
 Route::post('/blog/{post}/like', [BlogController::class, 'like'])->name('blog.like');
 
