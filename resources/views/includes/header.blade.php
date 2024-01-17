@@ -4,7 +4,8 @@
             {{config('app.name')}}
         </a>
 
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -16,8 +17,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('blog.index')}}" class="nav-link
-                    {{ active_link('blog.index') }}" aria-current="page">
+                    <a href="{{ route('blog.index') }}" class="nav-link
+                    {{ active_link('blog*') }}" aria-current="page">
                         {{__('Блог')}}
                     </a>
                 </li>

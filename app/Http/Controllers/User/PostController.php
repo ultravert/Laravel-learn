@@ -12,7 +12,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        return 'Страница списка постов';
+        $post = (object) [
+            'id' => 123,
+            'title' => 'Lorem ipsum dolor sit amet',
+            'content' => 'Lorem ipsum <strong>dolor</strong> sit amet, consectetur adipiscing elit, sed do eiusmod temp',
+        ];
+
+        $posts = array_fill(0, 10, $post);
+
+        return view('user.posts.index', compact('posts'));
     }
 
     /**
@@ -20,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return 'Страница создания поста';
+        return view('user.posts.create');
     }
 
     /**
@@ -28,23 +36,29 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return 'Обновление поста';
+        return 'Запрос на создание поста';
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $post)
     {
-        return "Страница просмотра поста {$id}";
+        $post = (object) [
+            'id' => 123,
+            'title' => 'Lorem ipsum dolor sit amet',
+            'content' => 'Lorem ipsum <strong>dolor</strong> sit amet, consectetur adipiscing elit, sed do eiusmod temp',
+        ];
+
+        return view('user.posts.show', compact('post'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $post)
     {
-        return "Страница редактирования поста {$id}";
+        return view('user.posts.edit', compact('post'));
     }
 
     /**
