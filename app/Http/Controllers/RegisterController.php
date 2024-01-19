@@ -16,19 +16,22 @@ class RegisterController extends Controller
 //        $data = $request->all();
 //        $data = $request->only(['name', 'email']);
 //        $data = $request->except(['name', 'email']);
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
+//        $name = $request->input('name');
+//        $email = $request->input('email');
+//        $password = $request->input('password');
 //        $agreement = !! $request->input('agreement');
-        $agreement = $request->boolean('agreement');
+//        $agreement = $request->boolean('agreement');
 //        $avatar = $request->file('avatar');
 
 //        dd($request->has('name'));
 //        dd($request->filled('name'));
 //        dd($request->missing('name'));
 
-        dd($name, $email, $password, $agreement);
+//        dd($name, $email, $password, $agreement);
+        if (true) {
+            return redirect()->back()->withInput();
+        }
 
-        return 'запрос на регистрацию';
+        return redirect()->route('user');
     }
 }
