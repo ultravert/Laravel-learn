@@ -19,10 +19,6 @@ class Post extends Model
 
     protected $casts = [
         'published' => 'boolean',
-    ];
-
-    protected $dates = [
-        //при обращении к полям выведет не строковое значение, а объект
-        'published_at',
+        'published_at' => 'datetime',
     ];
 }
