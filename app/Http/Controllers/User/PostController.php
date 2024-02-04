@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StorePostRequest;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class PostController extends Controller
 {
@@ -36,9 +38,40 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $title = $request->input('title');
-        $content = $request->input('content');
-//        dd($title, $content);
+//        $title = $request->input('title');
+//        $content = $request->input('content');
+
+//        $validated = $request->validate([
+//            'title' => ['required', 'string', 'max:100'],
+//            'content' => ['required', 'string', 'max:1000'],
+//        ]);
+
+
+//        $validator = validator($request->all(), [
+//            'title' => ['required', 'string', 'max:100'],
+//            'content' => ['required', 'string', 'max:1000'],
+//
+//        ])->validate();
+
+//        $validated = $request->validated();
+
+        $validated = validate($request->all(), [
+            'title' => ['required', 'string', 'max:100'],
+            'content' => ['required', 'string', 'max:1000'],
+
+        ]);
+
+//        if (true) {
+//            throw ValidationException::withMessages([
+//                'account' => __('Недостаточно средств!'),
+//            ]);
+//        }
+
+
+        dd($validated);
+
+        alert(__('Сохранено!'));
+
         return redirect()->route('user.posts.show', 123);
     }
 
@@ -75,9 +108,19 @@ class PostController extends Controller
      */
     public function update(Request $request, $post)
     {
-        $title = $request->input('title');
-        $content = $request->input('content');
+//        $title = $request->input('title');
+//        $content = $request->input('content');
 //        dd($title, $content);
+
+        $validated = validate($request->all(), [
+            'title' => ['required', 'string', 'max:100'],
+            'content' => ['required', 'string', 'max:1000'],
+
+        ]);
+
+        dd($validated);
+
+        alert(__('Сохранено!'));
 
 //        return redirect()->back();
 

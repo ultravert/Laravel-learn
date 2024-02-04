@@ -21,28 +21,14 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
-//        $ip = $request->ip();
-//        $path = $request->path();
-//        $url = $request->url();
-//
-//        dd($ip, $path, $url);
+//        session(['alert' => __('Добро пожаловать!')]);
+        alert(__('Добро пожаловать!'));
 
-//        $email = $request->input('email');
-//        $password = $request->input('password');
-//        $remember = $request->boolean('remember');
-//
-//        dd($email, $password, $remember);
-//        return 'Запрос на вход';
-//        return response('Запрос на вход');
 
-//        return response()->redirectTo('/foo');
-//        return redirect('/foo');
 
-//        return response()->redirectToRoute('user');
-
-        if (true) {
-            return redirect()->back()->withInput();
-        }
+//        if (true) {
+//            return redirect()->back()->withInput();
+//        }
 
         return redirect()->route('user');
     }
